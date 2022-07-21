@@ -1,0 +1,1226 @@
+Timing Analyzer report for IITB_RISC
+Fri May 13 12:58:12 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'controlpath:controlpath_risc|op_sel'
+ 13. Setup: 'reset'
+ 14. Hold: 'reset'
+ 15. Hold: 'clk'
+ 16. Hold: 'controlpath:controlpath_risc|op_sel'
+ 17. Recovery: 'clk'
+ 18. Removal: 'clk'
+ 19. Setup Transfers
+ 20. Hold Transfers
+ 21. Recovery Transfers
+ 22. Removal Transfers
+ 23. Report TCCS
+ 24. Report RSKM
+ 25. Unconstrained Paths Summary
+ 26. Clock Status Summary
+ 27. Unconstrained Output Ports
+ 28. Unconstrained Output Ports
+ 29. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; IITB_RISC                                           ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M1270ZF256C4                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                   ;
++-------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------+
+; Clock Name                          ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                 ;
++-------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------+
+; clk                                 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                 ;
+; controlpath:controlpath_risc|op_sel ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { controlpath:controlpath_risc|op_sel } ;
+; reset                               ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reset }                               ;
++-------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Fmax Summary                                                              ;
++------------+-----------------+-------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                          ; Note ;
++------------+-----------------+-------------------------------------+------+
+; 49.24 MHz  ; 49.24 MHz       ; clk                                 ;      ;
+; 362.71 MHz ; 362.71 MHz      ; controlpath:controlpath_risc|op_sel ;      ;
++------------+-----------------+-------------------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------------------------+
+; Setup Summary                                                 ;
++-------------------------------------+---------+---------------+
+; Clock                               ; Slack   ; End Point TNS ;
++-------------------------------------+---------+---------------+
+; clk                                 ; -25.907 ; -9159.087     ;
+; controlpath:controlpath_risc|op_sel ; -17.878 ; -17.878       ;
+; reset                               ; -4.313  ; -22.224       ;
++-------------------------------------+---------+---------------+
+
+
++--------------------------------------------------------------+
+; Hold Summary                                                 ;
++-------------------------------------+--------+---------------+
+; Clock                               ; Slack  ; End Point TNS ;
++-------------------------------------+--------+---------------+
+; reset                               ; -4.309 ; -37.295       ;
+; clk                                 ; -2.554 ; -15.913       ;
+; controlpath:controlpath_risc|op_sel ; 1.159  ; 0.000         ;
++-------------------------------------+--------+---------------+
+
+
++--------------------------------+
+; Recovery Summary               ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -0.607 ; -108.046      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Removal Summary               ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.657 ; 0.000         ;
++-------+-------+---------------+
+
+
++--------------------------------------------------------------+
+; Minimum Pulse Width Summary                                  ;
++-------------------------------------+--------+---------------+
+; Clock                               ; Slack  ; End Point TNS ;
++-------------------------------------+--------+---------------+
+; clk                                 ; -2.289 ; -2.289        ;
+; reset                               ; -2.289 ; -2.289        ;
+; controlpath:controlpath_risc|op_sel ; 0.500  ; 0.000         ;
++-------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                                    ;
++---------+--------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                            ; To Node                                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+--------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -25.907 ; controlpath:controlpath_risc|m_a2    ; controlpath:controlpath_risc|Q.HKT                       ; reset        ; clk         ; 1.000        ; -6.012     ; 20.624     ;
+; -25.902 ; controlpath:controlpath_risc|m_a2    ; controlpath:controlpath_risc|Q.JAL2                      ; reset        ; clk         ; 1.000        ; -6.012     ; 20.619     ;
+; -25.887 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.604     ;
+; -25.813 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 20.530     ;
+; -25.799 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 20.516     ;
+; -25.770 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.487     ;
+; -25.770 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.487     ;
+; -25.754 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 20.471     ;
+; -25.750 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.467     ;
+; -25.749 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|dflipflop:zeroFF|dout             ; reset        ; clk         ; 1.000        ; -6.012     ; 20.466     ;
+; -25.700 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.417     ;
+; -25.691 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.408     ;
+; -25.365 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 20.082     ;
+; -25.365 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 20.082     ;
+; -25.299 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.016     ;
+; -25.292 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 20.009     ;
+; -25.151 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.868     ;
+; -25.096 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.813     ;
+; -25.096 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.813     ;
+; -25.096 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.813     ;
+; -25.047 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.764     ;
+; -25.045 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.762     ;
+; -25.039 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.756     ;
+; -25.009 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.726     ;
+; -25.001 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.718     ;
+; -24.954 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][14] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.671     ;
+; -24.952 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.669     ;
+; -24.949 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.666     ;
+; -24.949 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][14] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.666     ;
+; -24.916 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.633     ;
+; -24.909 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.626     ;
+; -24.903 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.620     ;
+; -24.896 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.613     ;
+; -24.890 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.607     ;
+; -24.860 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.577     ;
+; -24.854 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.571     ;
+; -24.802 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.519     ;
+; -24.756 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~87              ; reset        ; clk         ; 1.000        ; -6.012     ; 19.473     ;
+; -24.688 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.405     ;
+; -24.637 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.354     ;
+; -24.623 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.340     ;
+; -24.621 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.338     ;
+; -24.617 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][12] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.334     ;
+; -24.508 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][14] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.225     ;
+; -24.457 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.174     ;
+; -24.454 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][4]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.171     ;
+; -24.431 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.148     ;
+; -24.425 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][11] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.142     ;
+; -24.421 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.138     ;
+; -24.409 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][14] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.126     ;
+; -24.409 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][14] ; reset        ; clk         ; 1.000        ; -6.012     ; 19.126     ;
+; -24.351 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][1]  ; reset        ; clk         ; 1.000        ; -6.012     ; 19.068     ;
+; -24.262 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~88              ; reset        ; clk         ; 1.000        ; -6.012     ; 18.979     ;
+; -24.262 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~92              ; reset        ; clk         ; 1.000        ; -6.012     ; 18.979     ;
+; -24.262 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~96              ; reset        ; clk         ; 1.000        ; -6.012     ; 18.979     ;
+; -24.262 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~97              ; reset        ; clk         ; 1.000        ; -6.012     ; 18.979     ;
+; -24.262 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~100             ; reset        ; clk         ; 1.000        ; -6.012     ; 18.979     ;
+; -24.226 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.943     ;
+; -24.220 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.937     ;
+; -24.144 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][14] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.861     ;
+; -24.100 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.817     ;
+; -24.012 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][4]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.729     ;
+; -23.984 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.701     ;
+; -23.892 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.609     ;
+; -23.881 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][9]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.598     ;
+; -23.871 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][9]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.588     ;
+; -23.863 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][9]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.580     ;
+; -23.835 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][4]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.552     ;
+; -23.822 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.539     ;
+; -23.820 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][6]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.537     ;
+; -23.801 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][9]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.518     ;
+; -23.796 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][9]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.513     ;
+; -23.738 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][9]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.455     ;
+; -23.725 ; controlpath:controlpath_risc|m_op1_1 ; datapath:datapath_risc|dflipflop:zeroFF|dout             ; reset        ; clk         ; 1.000        ; -9.545     ; 14.909     ;
+; -23.667 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][10] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.384     ;
+; -23.645 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.362     ;
+; -23.642 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.359     ;
+; -23.600 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.317     ;
+; -23.599 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.316     ;
+; -23.592 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[0][15] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.309     ;
+; -23.590 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[0][3]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.307     ;
+; -23.575 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.292     ;
+; -23.564 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][1]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.281     ;
+; -23.562 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][1]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.279     ;
+; -23.562 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][2]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.279     ;
+; -23.544 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[3][4]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.261     ;
+; -23.538 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][4]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.255     ;
+; -23.509 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][4]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.226     ;
+; -23.485 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][1]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.202     ;
+; -23.381 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[5][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.098     ;
+; -23.379 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[7][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 18.096     ;
+; -23.358 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][10] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.075     ;
+; -23.355 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[4][10] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.072     ;
+; -23.322 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[0][13] ; reset        ; clk         ; 1.000        ; -6.012     ; 18.039     ;
+; -23.232 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[0][5]  ; reset        ; clk         ; 1.000        ; -6.012     ; 17.949     ;
+; -23.165 ; controlpath:controlpath_risc|m_op1_1 ; datapath:datapath_risc|dregister:regA|dout[2]            ; reset        ; clk         ; 1.000        ; -9.545     ; 14.349     ;
+; -23.156 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|memory:RAM|memory~94              ; reset        ; clk         ; 1.000        ; -6.012     ; 17.873     ;
+; -22.977 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[6][7]  ; reset        ; clk         ; 1.000        ; -6.012     ; 17.694     ;
+; -22.941 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[1][1]  ; reset        ; clk         ; 1.000        ; -6.012     ; 17.658     ;
+; -22.941 ; controlpath:controlpath_risc|m_a2    ; datapath:datapath_risc|register_file:RF|registers[2][1]  ; reset        ; clk         ; 1.000        ; -6.012     ; 17.658     ;
++---------+--------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'controlpath:controlpath_risc|op_sel'                                                                                                                                                                                                                             ;
++---------+-----------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------+-------------------------------------+--------------+------------+------------+
+; Slack   ; From Node                                                                                     ; To Node                                   ; Launch Clock                        ; Latch Clock                         ; Relationship ; Clock Skew ; Data Delay ;
++---------+-----------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------+-------------------------------------+--------------+------------+------------+
+; -17.878 ; controlpath:controlpath_risc|m_a2                                                             ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 1.000        ; -7.048     ; 10.232     ;
+; -17.658 ; controlpath:controlpath_risc|m_op1_0                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 1.000        ; -10.577    ; 6.483      ;
+; -16.846 ; controlpath:controlpath_risc|m_op2_0                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 1.000        ; -10.612    ; 5.636      ;
+; -16.577 ; controlpath:controlpath_risc|m_op2_1                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 1.000        ; -10.608    ; 5.371      ;
+; -16.347 ; controlpath:controlpath_risc|m_op1_1                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 1.000        ; -10.581    ; 5.168      ;
+; -11.907 ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[7]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 10.273     ;
+; -11.668 ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[9]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 10.034     ;
+; -11.577 ; datapath:datapath_risc|register_file:RF|registers[0][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.943      ;
+; -11.303 ; datapath:datapath_risc|register_file:RF|registers[4][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.669      ;
+; -11.279 ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[6]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.645      ;
+; -11.165 ; datapath:datapath_risc|register_file:RF|registers[1][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.531      ;
+; -11.126 ; datapath:datapath_risc|register_file:RF|registers[4][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.492      ;
+; -11.080 ; datapath:datapath_risc|register_file:RF|registers[6][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.446      ;
+; -11.050 ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[10] ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.416      ;
+; -10.837 ; datapath:datapath_risc|register_file:RF|registers[2][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.203      ;
+; -10.810 ; datapath:datapath_risc|register_file:RF|registers[3][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.176      ;
+; -10.794 ; datapath:datapath_risc|register_file:RF|registers[5][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.160      ;
+; -10.763 ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[8]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 9.129      ;
+; -10.257 ; datapath:datapath_risc|register_file:RF|registers[0][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 8.623      ;
+; -9.504  ; datapath:datapath_risc|register_file:RF|registers[7][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 7.870      ;
+; -8.989  ; datapath:datapath_risc|register_file:RF|registers[7][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 7.355      ;
+; -8.222  ; datapath:datapath_risc|register_file:RF|registers[3][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 6.588      ;
+; -7.756  ; datapath:datapath_risc|register_file:RF|registers[6][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 6.122      ;
+; -7.712  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[5]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 6.078      ;
+; -7.614  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11] ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 5.980      ;
+; -7.534  ; datapath:datapath_risc|register_file:RF|registers[1][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 5.900      ;
+; -7.159  ; datapath:datapath_risc|register_file:RF|registers[5][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 5.525      ;
+; -6.339  ; datapath:datapath_risc|register_file:RF|registers[2][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 1.000        ; -1.036     ; 4.705      ;
+; -1.757  ; datapath:datapath_risc|alu:alu_unit|carry                                                     ; datapath:datapath_risc|alu:alu_unit|carry ; controlpath:controlpath_risc|op_sel ; controlpath:controlpath_risc|op_sel ; 1.000        ; 0.000      ; 1.159      ;
++---------+-----------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------+-------------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'reset'                                                                                                                                                                                                       ;
++--------+-----------------------------------------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                     ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.313 ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 1.000        ; 0.070      ; 3.700      ;
+; -4.205 ; controlpath:controlpath_risc|Q.RST                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 1.000        ; 0.070      ; 3.592      ;
+; -4.054 ; controlpath:controlpath_risc|Q.SW2                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 1.000        ; 0.070      ; 3.441      ;
+; -4.017 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 1.000        ; 0.070      ; 3.404      ;
+; -3.747 ; controlpath:controlpath_risc|Q.FETCH                                                          ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 1.000        ; 0.070      ; 3.134      ;
+; -3.583 ; controlpath:controlpath_risc|Q.BEQ                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 1.000        ; 0.070      ; 2.970      ;
+; -3.476 ; controlpath:controlpath_risc|Q.HKT                                                            ; controlpath:controlpath_risc|rd_mem   ; clk          ; reset       ; 1.000        ; 0.486      ; 3.310      ;
+; -3.323 ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|en_A     ; clk          ; reset       ; 1.000        ; 0.377      ; 3.094      ;
+; -3.208 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 1.000        ; 0.376      ; 2.986      ;
+; -3.027 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|en_A     ; clk          ; reset       ; 1.000        ; 0.377      ; 2.798      ;
+; -2.889 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 1.000        ; 0.376      ; 2.667      ;
+; -2.741 ; controlpath:controlpath_risc|Q.HKT                                                            ; controlpath:controlpath_risc|en_irf   ; clk          ; reset       ; 1.000        ; 1.543      ; 4.084      ;
+; -2.624 ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 1.000        ; 0.376      ; 2.402      ;
+; -2.485 ; controlpath:controlpath_risc|Q.SW2                                                            ; controlpath:controlpath_risc|wr_mem   ; clk          ; reset       ; 1.000        ; 0.068      ; 1.978      ;
+; -2.467 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 1.000        ; 0.376      ; 2.245      ;
+; -2.378 ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|rd_mem   ; clk          ; reset       ; 1.000        ; 0.486      ; 2.212      ;
+; -2.247 ; controlpath:controlpath_risc|Q.RST1                                                           ; controlpath:controlpath_risc|rd_mem   ; clk          ; reset       ; 1.000        ; 0.486      ; 2.081      ;
+; -1.082 ; controlpath:controlpath_risc|Q.RST1                                                           ; controlpath:controlpath_risc|en_irf   ; clk          ; reset       ; 1.000        ; 1.543      ; 2.425      ;
+; -1.006 ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 1.000        ; 6.012      ; 6.235      ;
+; -0.965 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|en_c     ; clk          ; reset       ; 0.500        ; 2.345      ; 2.070      ;
+; -0.810 ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|en_c     ; clk          ; reset       ; 0.500        ; 2.345      ; 1.915      ;
+; -0.710 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 1.000        ; 6.012      ; 5.939      ;
+; -0.570 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 1.000        ; 6.012      ; 5.799      ;
+; -0.536 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|en_c     ; clk          ; reset       ; 0.500        ; 2.345      ; 1.641      ;
+; -0.493 ; controlpath:controlpath_risc|Q.FETCH                                                          ; controlpath:controlpath_risc|en_ir    ; clk          ; reset       ; 1.000        ; 6.237      ; 6.093      ;
+; -0.214 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|op_sel   ; clk          ; reset       ; 1.000        ; 9.556      ; 9.514      ;
+; -0.144 ; controlpath:controlpath_risc|Q.BEQ                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 1.000        ; 6.012      ; 5.373      ;
+; -0.142 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 1.000        ; 6.012      ; 5.371      ;
+; 0.261  ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|m_op1_0  ; clk          ; reset       ; 1.000        ; 9.541      ; 8.905      ;
+; 0.468  ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_op1_0  ; clk          ; reset       ; 1.000        ; 9.541      ; 8.698      ;
+; 0.652  ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 1.000        ; 9.572      ; 8.511      ;
+; 0.765  ; controlpath:controlpath_risc|Q.LHI                                                            ; controlpath:controlpath_risc|m_d3_1   ; clk          ; reset       ; 1.000        ; 7.034      ; 6.099      ;
+; 0.948  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 1.000        ; 9.572      ; 8.215      ;
+; 0.977  ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_mem_a  ; clk          ; reset       ; 1.000        ; 4.737      ; 3.405      ;
+; 1.225  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_z      ; clk          ; reset       ; 1.000        ; 4.667      ; 2.518      ;
+; 1.259  ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_d3_1   ; clk          ; reset       ; 1.000        ; 7.034      ; 5.605      ;
+; 1.259  ; controlpath:controlpath_risc|Q.SW2                                                            ; controlpath:controlpath_risc|m_mem_a  ; clk          ; reset       ; 1.000        ; 4.737      ; 3.123      ;
+; 1.284  ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 1.000        ; 7.087      ; 5.641      ;
+; 1.662  ; controlpath:controlpath_risc|Q.JLR                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 1.000        ; 6.012      ; 3.567      ;
+; 1.712  ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 1.000        ; 7.087      ; 5.213      ;
+; 1.767  ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 1.000        ; 9.572      ; 7.396      ;
+; 1.810  ; controlpath:controlpath_risc|Q.JAL2                                                           ; controlpath:controlpath_risc|m_op1_1  ; clk          ; reset       ; 1.000        ; 9.545      ; 7.545      ;
+; 1.946  ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 1.000        ; 7.080      ; 4.965      ;
+; 2.073  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 1.000        ; 9.576      ; 7.234      ;
+; 2.365  ; controlpath:controlpath_risc|Q.LHI                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 1.000        ; 7.080      ; 4.546      ;
+; 2.413  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[13] ; controlpath:controlpath_risc|op_sel   ; clk          ; reset       ; 1.000        ; 9.556      ; 6.887      ;
+; 2.413  ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 1.000        ; 9.572      ; 6.750      ;
+; 2.485  ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_op1_1  ; clk          ; reset       ; 1.000        ; 9.545      ; 6.870      ;
+; 2.550  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_comp_b ; clk          ; reset       ; 1.000        ; 4.811      ; 1.906      ;
+; 2.827  ; controlpath:controlpath_risc|Q.JRI                                                            ; controlpath:controlpath_risc|m_op1_1  ; clk          ; reset       ; 1.000        ; 9.545      ; 6.528      ;
+; 2.999  ; controlpath:controlpath_risc|Q.JAL2                                                           ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 1.000        ; 9.576      ; 6.308      ;
+; 3.109  ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 1.000        ; 9.576      ; 6.198      ;
+; 3.184  ; controlpath:controlpath_risc|Q.LHI                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 1.000        ; 7.087      ; 3.741      ;
+; 3.269  ; controlpath:controlpath_risc|Q.JLR                                                            ; controlpath:controlpath_risc|m_d3_0   ; clk          ; reset       ; 1.000        ; 7.086      ; 3.648      ;
+; 3.295  ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 1.000        ; 9.576      ; 6.012      ;
+; 3.329  ; controlpath:controlpath_risc|Q.JRI                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 1.000        ; 9.572      ; 5.834      ;
+; 3.687  ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 1.000        ; 7.087      ; 3.238      ;
+; 3.820  ; controlpath:controlpath_risc|Q.JMP                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 1.000        ; 7.080      ; 3.091      ;
+; 3.825  ; controlpath:controlpath_risc|Q.JMP                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 1.000        ; 7.087      ; 3.100      ;
+; 4.109  ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 1.000        ; 7.080      ; 2.802      ;
+; 4.140  ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_d3_0   ; clk          ; reset       ; 1.000        ; 7.086      ; 2.777      ;
++--------+-----------------------------------------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'reset'                                                                                                                                                                                                        ;
++--------+-----------------------------------------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                     ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.309 ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_d3_0   ; clk          ; reset       ; 0.000        ; 7.086      ; 2.777      ;
+; -4.278 ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 0.000        ; 7.080      ; 2.802      ;
+; -3.989 ; controlpath:controlpath_risc|Q.JMP                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 0.000        ; 7.080      ; 3.091      ;
+; -3.987 ; controlpath:controlpath_risc|Q.JMP                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 0.000        ; 7.087      ; 3.100      ;
+; -3.849 ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 0.000        ; 7.087      ; 3.238      ;
+; -3.738 ; controlpath:controlpath_risc|Q.JRI                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 0.000        ; 9.572      ; 5.834      ;
+; -3.564 ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 0.000        ; 9.576      ; 6.012      ;
+; -3.438 ; controlpath:controlpath_risc|Q.JLR                                                            ; controlpath:controlpath_risc|m_d3_0   ; clk          ; reset       ; 0.000        ; 7.086      ; 3.648      ;
+; -3.378 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 0.000        ; 9.576      ; 6.198      ;
+; -3.346 ; controlpath:controlpath_risc|Q.LHI                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 0.000        ; 7.087      ; 3.741      ;
+; -3.268 ; controlpath:controlpath_risc|Q.JAL2                                                           ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 0.000        ; 9.576      ; 6.308      ;
+; -3.017 ; controlpath:controlpath_risc|Q.JRI                                                            ; controlpath:controlpath_risc|m_op1_1  ; clk          ; reset       ; 0.000        ; 9.545      ; 6.528      ;
+; -2.905 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_comp_b ; clk          ; reset       ; 0.000        ; 4.811      ; 1.906      ;
+; -2.822 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 0.000        ; 9.572      ; 6.750      ;
+; -2.675 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_op1_1  ; clk          ; reset       ; 0.000        ; 9.545      ; 6.870      ;
+; -2.669 ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[13] ; controlpath:controlpath_risc|op_sel   ; clk          ; reset       ; 0.000        ; 9.556      ; 6.887      ;
+; -2.534 ; controlpath:controlpath_risc|Q.LHI                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 0.000        ; 7.080      ; 4.546      ;
+; -2.445 ; controlpath:controlpath_risc|Q.JLR                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 0.000        ; 6.012      ; 3.567      ;
+; -2.342 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_op2_0  ; clk          ; reset       ; 0.000        ; 9.576      ; 7.234      ;
+; -2.176 ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 0.000        ; 9.572      ; 7.396      ;
+; -2.149 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_z      ; clk          ; reset       ; 0.000        ; 4.667      ; 2.518      ;
+; -2.115 ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|m_a3_1   ; clk          ; reset       ; 0.000        ; 7.080      ; 4.965      ;
+; -2.000 ; controlpath:controlpath_risc|Q.JAL2                                                           ; controlpath:controlpath_risc|m_op1_1  ; clk          ; reset       ; 0.000        ; 9.545      ; 7.545      ;
+; -1.874 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 0.000        ; 7.087      ; 5.213      ;
+; -1.614 ; controlpath:controlpath_risc|Q.SW2                                                            ; controlpath:controlpath_risc|m_mem_a  ; clk          ; reset       ; 0.000        ; 4.737      ; 3.123      ;
+; -1.446 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_a3_0   ; clk          ; reset       ; 0.000        ; 7.087      ; 5.641      ;
+; -1.429 ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_d3_1   ; clk          ; reset       ; 0.000        ; 7.034      ; 5.605      ;
+; -1.357 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 0.000        ; 9.572      ; 8.215      ;
+; -1.332 ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|m_mem_a  ; clk          ; reset       ; 0.000        ; 4.737      ; 3.405      ;
+; -1.061 ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|m_op2_1  ; clk          ; reset       ; 0.000        ; 9.572      ; 8.511      ;
+; -0.935 ; controlpath:controlpath_risc|Q.LHI                                                            ; controlpath:controlpath_risc|m_d3_1   ; clk          ; reset       ; 0.000        ; 7.034      ; 6.099      ;
+; -0.843 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_op1_0  ; clk          ; reset       ; 0.000        ; 9.541      ; 8.698      ;
+; -0.641 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 0.000        ; 6.012      ; 5.371      ;
+; -0.639 ; controlpath:controlpath_risc|Q.BEQ                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 0.000        ; 6.012      ; 5.373      ;
+; -0.636 ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|m_op1_0  ; clk          ; reset       ; 0.000        ; 9.541      ; 8.905      ;
+; -0.213 ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 0.000        ; 6.012      ; 5.799      ;
+; -0.204 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|en_c     ; clk          ; reset       ; -0.500       ; 2.345      ; 1.641      ;
+; -0.144 ; controlpath:controlpath_risc|Q.FETCH                                                          ; controlpath:controlpath_risc|en_ir    ; clk          ; reset       ; 0.000        ; 6.237      ; 6.093      ;
+; -0.073 ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 0.000        ; 6.012      ; 5.939      ;
+; -0.042 ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|op_sel   ; clk          ; reset       ; 0.000        ; 9.556      ; 9.514      ;
+; 0.070  ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|en_c     ; clk          ; reset       ; -0.500       ; 2.345      ; 1.915      ;
+; 0.223  ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|m_a2     ; clk          ; reset       ; 0.000        ; 6.012      ; 6.235      ;
+; 0.225  ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|en_c     ; clk          ; reset       ; -0.500       ; 2.345      ; 2.070      ;
+; 0.882  ; controlpath:controlpath_risc|Q.RST1                                                           ; controlpath:controlpath_risc|en_irf   ; clk          ; reset       ; 0.000        ; 1.543      ; 2.425      ;
+; 1.595  ; controlpath:controlpath_risc|Q.RST1                                                           ; controlpath:controlpath_risc|rd_mem   ; clk          ; reset       ; 0.000        ; 0.486      ; 2.081      ;
+; 1.726  ; controlpath:controlpath_risc|Q.LW2                                                            ; controlpath:controlpath_risc|rd_mem   ; clk          ; reset       ; 0.000        ; 0.486      ; 2.212      ;
+; 1.869  ; controlpath:controlpath_risc|Q.ADL                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 0.000        ; 0.376      ; 2.245      ;
+; 1.910  ; controlpath:controlpath_risc|Q.SW2                                                            ; controlpath:controlpath_risc|wr_mem   ; clk          ; reset       ; 0.000        ; 0.068      ; 1.978      ;
+; 2.026  ; controlpath:controlpath_risc|Q.ADI                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 0.000        ; 0.376      ; 2.402      ;
+; 2.291  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 0.000        ; 0.376      ; 2.667      ;
+; 2.421  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|en_A     ; clk          ; reset       ; 0.000        ; 0.377      ; 2.798      ;
+; 2.541  ; controlpath:controlpath_risc|Q.HKT                                                            ; controlpath:controlpath_risc|en_irf   ; clk          ; reset       ; 0.000        ; 1.543      ; 4.084      ;
+; 2.610  ; controlpath:controlpath_risc|Q.AON                                                            ; controlpath:controlpath_risc|en_z     ; clk          ; reset       ; 0.000        ; 0.376      ; 2.986      ;
+; 2.717  ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|en_A     ; clk          ; reset       ; 0.000        ; 0.377      ; 3.094      ;
+; 2.824  ; controlpath:controlpath_risc|Q.HKT                                                            ; controlpath:controlpath_risc|rd_mem   ; clk          ; reset       ; 0.000        ; 0.486      ; 3.310      ;
+; 2.900  ; controlpath:controlpath_risc|Q.BEQ                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 0.000        ; 0.070      ; 2.970      ;
+; 3.064  ; controlpath:controlpath_risc|Q.FETCH                                                          ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 0.000        ; 0.070      ; 3.134      ;
+; 3.334  ; controlpath:controlpath_risc|Q.LW1                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 0.000        ; 0.070      ; 3.404      ;
+; 3.371  ; controlpath:controlpath_risc|Q.SW2                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 0.000        ; 0.070      ; 3.441      ;
+; 3.522  ; controlpath:controlpath_risc|Q.RST                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 0.000        ; 0.070      ; 3.592      ;
+; 3.630  ; controlpath:controlpath_risc|Q.SW1                                                            ; controlpath:controlpath_risc|wr_rf    ; clk          ; reset       ; 0.000        ; 0.070      ; 3.700      ;
++--------+-----------------------------------------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                                                                                                                                                                       ;
++--------+------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+-------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                            ; To Node                                                                                              ; Launch Clock                        ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+-------------------------------------+-------------+--------------+------------+------------+
+; -2.554 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[9]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 0.728      ;
+; -2.054 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[9]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 0.728      ;
+; -1.800 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[11]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 1.482      ;
+; -1.770 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[10]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 1.512      ;
+; -1.763 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[13]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 1.519      ;
+; -1.762 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[12]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 1.520      ;
+; -1.762 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[14]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 1.520      ;
+; -1.300 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[11]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 1.482      ;
+; -1.270 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[10]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 1.512      ;
+; -1.263 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[13]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 1.519      ;
+; -1.262 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[12]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 1.520      ;
+; -1.262 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[14]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 1.520      ;
+; -0.861 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[15]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 2.421      ;
+; -0.825 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[8]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 2.457      ;
+; -0.790 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[4]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 2.492      ;
+; -0.710 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[5]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 2.572      ;
+; -0.659 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[6]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 2.623      ;
+; -0.657 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[7]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 2.625      ;
+; -0.361 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[15]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 2.421      ;
+; -0.325 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[8]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 2.457      ;
+; -0.290 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[4]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 2.492      ;
+; -0.210 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[5]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 2.572      ;
+; -0.159 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[6]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 2.623      ;
+; -0.157 ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[7]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 2.625      ;
+; 0.540  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[0]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 3.822      ;
+; 0.822  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dflipflop:zeroFF|dout                                                         ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 4.104      ;
+; 0.951  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[15]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 2.166      ;
+; 1.023  ; reset                                                                                                ; controlpath:controlpath_risc|Q.ADI                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.305      ;
+; 1.034  ; reset                                                                                                ; controlpath:controlpath_risc|Q.RST                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.316      ;
+; 1.040  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[0]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 3.822      ;
+; 1.140  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JLR                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.422      ;
+; 1.142  ; reset                                                                                                ; controlpath:controlpath_risc|Q.RST1                                                                  ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.424      ;
+; 1.145  ; reset                                                                                                ; controlpath:controlpath_risc|Q.LW2                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.427      ;
+; 1.146  ; reset                                                                                                ; controlpath:controlpath_risc|Q.SW2                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.428      ;
+; 1.205  ; reset                                                                                                ; controlpath:controlpath_risc|Q.FETCH                                                                 ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.487      ;
+; 1.239  ; reset                                                                                                ; controlpath:controlpath_risc|Q.LHI                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 4.521      ;
+; 1.322  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dflipflop:zeroFF|dout                                                         ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 4.104      ;
+; 1.523  ; reset                                                                                                ; controlpath:controlpath_risc|Q.ADI                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.305      ;
+; 1.534  ; reset                                                                                                ; controlpath:controlpath_risc|Q.RST                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.316      ;
+; 1.640  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JLR                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.422      ;
+; 1.642  ; reset                                                                                                ; controlpath:controlpath_risc|Q.RST1                                                                  ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.424      ;
+; 1.645  ; reset                                                                                                ; controlpath:controlpath_risc|Q.LW2                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.427      ;
+; 1.646  ; reset                                                                                                ; controlpath:controlpath_risc|Q.SW2                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.428      ;
+; 1.669  ; datapath:datapath_risc|register_file:RF|registers[3][13]                                             ; datapath:datapath_risc|memory:RAM|memory~66                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 1.848      ;
+; 1.669  ; datapath:datapath_risc|register_file:RF|registers[3][14]                                             ; datapath:datapath_risc|memory:RAM|memory~99                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 1.848      ;
+; 1.683  ; datapath:datapath_risc|register_file:RF|registers[7][9]                                              ; datapath:datapath_risc|memory:RAM|memory~62                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 1.862      ;
+; 1.705  ; reset                                                                                                ; controlpath:controlpath_risc|Q.FETCH                                                                 ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.487      ;
+; 1.728  ; datapath:datapath_risc|dflipflop:carryFF|dout                                                        ; datapath:datapath_risc|dflipflop:carryFF|dout                                                        ; clk                                 ; clk         ; 0.000        ; 0.000      ; 1.907      ;
+; 1.739  ; reset                                                                                                ; controlpath:controlpath_risc|Q.LHI                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 4.521      ;
+; 1.771  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JRI                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 5.053      ;
+; 1.833  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dflipflop:carryFF|dout                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 5.115      ;
+; 1.844  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[1]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 5.126      ;
+; 1.850  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[0]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.065      ;
+; 1.856  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[6]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.071      ;
+; 1.856  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[7]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.071      ;
+; 1.860  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[9]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.075      ;
+; 1.864  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[5]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.079      ;
+; 1.865  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[11]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.080      ;
+; 1.868  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[10]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.083      ;
+; 1.876  ; datapath:datapath_risc|register_file:RF|registers[3][0]                                              ; datapath:datapath_risc|memory:RAM|memory~149                                                         ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.055      ;
+; 1.876  ; reset                                                                                                ; controlpath:controlpath_risc|Q.LW1                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 5.158      ;
+; 1.880  ; reset                                                                                                ; controlpath:controlpath_risc|Q.BEQ                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 5.162      ;
+; 1.897  ; datapath:datapath_risc|register_file:RF|registers[7][4]                                              ; datapath:datapath_risc|memory:RAM|memory~153                                                         ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.076      ;
+; 1.898  ; datapath:datapath_risc|register_file:RF|registers[3][6]                                              ; datapath:datapath_risc|memory:RAM|memory~91                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.077      ;
+; 1.901  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[3]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 5.183      ;
+; 1.909  ; datapath:datapath_risc|register_file:RF|registers[7][8]                                              ; datapath:datapath_risc|memory:RAM|memory~157                                                         ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.088      ;
+; 2.082  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[2]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 3.103      ; 5.364      ;
+; 2.091  ; datapath:datapath_risc|register_file:RF|registers[7][12]                                             ; datapath:datapath_risc|memory:RAM|memory~161                                                         ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.270      ;
+; 2.104  ; controlpath:controlpath_risc|Q.LW1                                                                   ; controlpath:controlpath_risc|Q.LW2                                                                   ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.283      ;
+; 2.111  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[8]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.326      ;
+; 2.123  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[13]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.338      ;
+; 2.124  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[14]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.339      ;
+; 2.125  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[12]                                                       ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.340      ;
+; 2.152  ; controlpath:controlpath_risc|Q.RST1                                                                  ; controlpath:controlpath_risc|Q.FETCH                                                                 ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.331      ;
+; 2.173  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11]        ; datapath:datapath_risc|memory:RAM|memory~66                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.352      ;
+; 2.181  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JMP                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 5.463      ;
+; 2.195  ; datapath:datapath_risc|dflipflop:zeroFF|dout                                                         ; datapath:datapath_risc|dflipflop:zeroFF|dout                                                         ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.374      ;
+; 2.236  ; datapath:datapath_risc|alu:alu_unit|carry                                                            ; datapath:datapath_risc|dregister:regA|dout[4]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; 0.000        ; 1.036      ; 3.451      ;
+; 2.237  ; datapath:datapath_risc|register_file:RF|registers[7][14]                                             ; datapath:datapath_risc|memory:RAM|memory~99                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.416      ;
+; 2.261  ; controlpath:controlpath_risc|Q.SW1                                                                   ; controlpath:controlpath_risc|Q.SW2                                                                   ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.440      ;
+; 2.271  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JRI                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 5.053      ;
+; 2.333  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dflipflop:carryFF|dout                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 5.115      ;
+; 2.344  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[1]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 5.126      ;
+; 2.376  ; reset                                                                                                ; controlpath:controlpath_risc|Q.LW1                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 5.158      ;
+; 2.380  ; reset                                                                                                ; controlpath:controlpath_risc|Q.BEQ                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 5.162      ;
+; 2.381  ; datapath:datapath_risc|memory:RAM|memory~193                                                         ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[12] ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.560      ;
+; 2.401  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[3]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 5.183      ;
+; 2.433  ; controlpath:controlpath_risc|Q.FETCH                                                                 ; controlpath:controlpath_risc|Q.LHI                                                                   ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.612      ;
+; 2.435  ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[2]  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[2]         ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.614      ;
+; 2.456  ; datapath:datapath_risc|register_file:RF|registers[3][11]                                             ; datapath:datapath_risc|memory:RAM|memory~48                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.635      ;
+; 2.481  ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[11] ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11]        ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.660      ;
+; 2.523  ; datapath:datapath_risc|register_file:RF|registers[3][2]                                              ; datapath:datapath_risc|memory:RAM|memory~87                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.702      ;
+; 2.578  ; controlpath:controlpath_risc|Q.FETCH                                                                 ; controlpath:controlpath_risc|Q.LW1                                                                   ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.757      ;
+; 2.582  ; controlpath:controlpath_risc|Q.FETCH                                                                 ; controlpath:controlpath_risc|Q.BEQ                                                                   ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.761      ;
+; 2.582  ; controlpath:controlpath_risc|op_sel                                                                  ; datapath:datapath_risc|dregister:regA|dout[2]                                                        ; controlpath:controlpath_risc|op_sel ; clk         ; -0.500       ; 3.103      ; 5.364      ;
+; 2.610  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11]        ; datapath:datapath_risc|memory:RAM|memory~52                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.789      ;
+; 2.681  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JMP                                                                   ; reset                               ; clk         ; -0.500       ; 3.103      ; 5.463      ;
+; 2.706  ; reset                                                                                                ; controlpath:controlpath_risc|Q.HKT                                                                   ; reset                               ; clk         ; 0.000        ; 3.103      ; 5.988      ;
+; 2.706  ; reset                                                                                                ; controlpath:controlpath_risc|Q.JAL2                                                                  ; reset                               ; clk         ; 0.000        ; 3.103      ; 5.988      ;
+; 2.766  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11]        ; datapath:datapath_risc|memory:RAM|memory~99                                                          ; clk                                 ; clk         ; 0.000        ; 0.000      ; 2.945      ;
++--------+------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+-------------------------------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'controlpath:controlpath_risc|op_sel'                                                                                                                                                                                                                             ;
++--------+-----------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------+-------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                     ; To Node                                   ; Launch Clock                        ; Latch Clock                         ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------+-------------------------------------+--------------+------------+------------+
+; 1.159  ; datapath:datapath_risc|alu:alu_unit|carry                                                     ; datapath:datapath_risc|alu:alu_unit|carry ; controlpath:controlpath_risc|op_sel ; controlpath:controlpath_risc|op_sel ; 0.000        ; 0.000      ; 1.159      ;
+; 5.358  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[5]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 4.322      ;
+; 5.741  ; datapath:datapath_risc|register_file:RF|registers[2][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 4.705      ;
+; 5.771  ; datapath:datapath_risc|register_file:RF|registers[5][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 4.735      ;
+; 6.561  ; datapath:datapath_risc|register_file:RF|registers[5][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 5.525      ;
+; 6.936  ; datapath:datapath_risc|register_file:RF|registers[1][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 5.900      ;
+; 7.016  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11] ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 5.980      ;
+; 7.158  ; datapath:datapath_risc|register_file:RF|registers[6][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 6.122      ;
+; 7.335  ; datapath:datapath_risc|register_file:RF|registers[2][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 6.299      ;
+; 7.624  ; datapath:datapath_risc|register_file:RF|registers[3][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 6.588      ;
+; 7.746  ; datapath:datapath_risc|register_file:RF|registers[1][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 6.710      ;
+; 8.075  ; datapath:datapath_risc|register_file:RF|registers[6][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 7.039      ;
+; 8.144  ; datapath:datapath_risc|register_file:RF|registers[3][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 7.108      ;
+; 8.222  ; datapath:datapath_risc|register_file:RF|registers[7][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 7.186      ;
+; 8.391  ; datapath:datapath_risc|register_file:RF|registers[7][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 7.355      ;
+; 8.633  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[9]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 7.597      ;
+; 8.834  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[6]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 7.798      ;
+; 9.225  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[10] ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 8.189      ;
+; 9.494  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[7]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 8.458      ;
+; 9.529  ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[8]  ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 8.493      ;
+; 9.659  ; datapath:datapath_risc|register_file:RF|registers[0][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 8.623      ;
+; 9.852  ; datapath:datapath_risc|register_file:RF|registers[4][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 8.816      ;
+; 9.968  ; datapath:datapath_risc|register_file:RF|registers[0][15]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 8.932      ;
+; 10.705 ; datapath:datapath_risc|register_file:RF|registers[4][14]                                      ; datapath:datapath_risc|alu:alu_unit|carry ; clk                                 ; controlpath:controlpath_risc|op_sel ; 0.000        ; -1.036     ; 9.669      ;
+; 13.984 ; controlpath:controlpath_risc|m_a2                                                             ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 0.000        ; -7.048     ; 6.936      ;
+; 14.915 ; controlpath:controlpath_risc|m_op1_0                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 0.000        ; -10.577    ; 4.338      ;
+; 15.201 ; controlpath:controlpath_risc|m_op1_1                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 0.000        ; -10.581    ; 4.620      ;
+; 15.838 ; controlpath:controlpath_risc|m_op2_0                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 0.000        ; -10.612    ; 5.226      ;
+; 15.953 ; controlpath:controlpath_risc|m_op2_1                                                          ; datapath:datapath_risc|alu:alu_unit|carry ; reset                               ; controlpath:controlpath_risc|op_sel ; 0.000        ; -10.608    ; 5.345      ;
++--------+-----------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------+-------------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'clk'                                                                                                                                                                                ;
++--------+-----------+-----------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node                                                                                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+-----------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][15]                                            ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[6]        ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[7]        ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][0]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[8]        ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][1]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|dregister:regA|dout[1]                                                       ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|dregister:regA|dout[0]                                                       ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][3]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|dregister:regA|dout[3]                                                       ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][2]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|dregister:regA|dout[2]                                                       ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[0] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11]       ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[1] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[2] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[3]        ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[3] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][4]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[4]        ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[4] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][5]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[5]        ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[5] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][6]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[6] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][7]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[7] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][8]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[8] ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
+; -0.607 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][9]                                             ; reset        ; clk         ; 0.500        ; 3.103      ; 3.939      ;
++--------+-----------+-----------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'clk'                                                                                                                                                                                ;
++-------+-----------+-----------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node                                                                                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][15]                                            ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[6]        ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[7]        ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][0]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[8]        ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][1]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|dregister:regA|dout[1]                                                       ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|dregister:regA|dout[0]                                                       ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][3]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|dregister:regA|dout[3]                                                       ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][2]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|dregister:regA|dout[2]                                                       ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[0] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[11]       ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[1] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[2] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[3]        ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[3] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][4]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[4]        ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[4] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][5]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register:Inst_reg_exe|dregister:next_instruction1|dout[5]        ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[5] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][6]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[6] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][7]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[7] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[2][8]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|instruction_register_fetch:Inst_reg_fetch|dregister:next_instruction|dout[8] ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[4][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[6][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[7][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[5][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[0][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[1][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
+; 0.657 ; reset     ; datapath:datapath_risc|register_file:RF|registers[3][9]                                             ; reset        ; clk         ; 0.000        ; 3.103      ; 3.939      ;
++-------+-----------+-----------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                       ;
++-------------------------------------+-------------------------------------+----------+----------+----------+----------+
+; From Clock                          ; To Clock                            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------+-------------------------------------+----------+----------+----------+----------+
+; clk                                 ; clk                                 ; 76260    ; 0        ; 0        ; 0        ;
+; controlpath:controlpath_risc|op_sel ; clk                                 ; 66       ; 33       ; 0        ; 0        ;
+; reset                               ; clk                                 ; 35987    ; 18       ; 0        ; 0        ;
+; clk                                 ; controlpath:controlpath_risc|op_sel ; 63       ; 0        ; 0        ; 0        ;
+; controlpath:controlpath_risc|op_sel ; controlpath:controlpath_risc|op_sel ; 1        ; 0        ; 0        ; 0        ;
+; reset                               ; controlpath:controlpath_risc|op_sel ; 31       ; 0        ; 0        ; 0        ;
+; clk                                 ; reset                               ; 58       ; 0        ; 3        ; 0        ;
++-------------------------------------+-------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                        ;
++-------------------------------------+-------------------------------------+----------+----------+----------+----------+
+; From Clock                          ; To Clock                            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------+-------------------------------------+----------+----------+----------+----------+
+; clk                                 ; clk                                 ; 76260    ; 0        ; 0        ; 0        ;
+; controlpath:controlpath_risc|op_sel ; clk                                 ; 66       ; 33       ; 0        ; 0        ;
+; reset                               ; clk                                 ; 35987    ; 18       ; 0        ; 0        ;
+; clk                                 ; controlpath:controlpath_risc|op_sel ; 63       ; 0        ; 0        ; 0        ;
+; controlpath:controlpath_risc|op_sel ; controlpath:controlpath_risc|op_sel ; 1        ; 0        ; 0        ; 0        ;
+; reset                               ; controlpath:controlpath_risc|op_sel ; 31       ; 0        ; 0        ; 0        ;
+; clk                                 ; reset                               ; 58       ; 0        ; 3        ; 0        ;
++-------------------------------------+-------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Recovery Transfers                                                ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; reset      ; clk      ; 178      ; 178      ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Removal Transfers                                                 ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; reset      ; clk      ; 178      ; 178      ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 128   ; 128  ;
+; Unconstrained Output Port Paths ; 128   ; 128  ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                           ;
++-------------------------------------+-------------------------------------+------+-------------+
+; Target                              ; Clock                               ; Type ; Status      ;
++-------------------------------------+-------------------------------------+------+-------------+
+; clk                                 ; clk                                 ; Base ; Constrained ;
+; controlpath:controlpath_risc|op_sel ; controlpath:controlpath_risc|op_sel ; Base ; Constrained ;
+; reset                               ; reset                               ; Base ; Constrained ;
++-------------------------------------+-------------------------------------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; r0[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; r0[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r0[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r1[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r2[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r3[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r4[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r5[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r6[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[7]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[8]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[9]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[10]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[11]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[12]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[13]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[14]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r7[15]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Fri May 13 12:58:10 2022
+Info: Command: quartus_sta IITB_RISC2022 -c IITB_RISC
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Warning (335093): The Timing Analyzer is analyzing 22 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'IITB_RISC.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name reset reset
+    Info (332105): create_clock -period 1.000 -name controlpath:controlpath_risc|op_sel controlpath:controlpath_risc|op_sel
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -25.907
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -25.907           -9159.087 clk 
+    Info (332119):   -17.878             -17.878 controlpath:controlpath_risc|op_sel 
+    Info (332119):    -4.313             -22.224 reset 
+Info (332146): Worst-case hold slack is -4.309
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.309             -37.295 reset 
+    Info (332119):    -2.554             -15.913 clk 
+    Info (332119):     1.159               0.000 controlpath:controlpath_risc|op_sel 
+Info (332146): Worst-case recovery slack is -0.607
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.607            -108.046 clk 
+Info (332146): Worst-case removal slack is 0.657
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.657               0.000 clk 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):    -2.289              -2.289 reset 
+    Info (332119):     0.500               0.000 controlpath:controlpath_risc|op_sel 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4681 megabytes
+    Info: Processing ended: Fri May 13 12:58:12 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
